@@ -9,4 +9,7 @@ html {
 .body {
     font-family: 'Montserrat', sans-serif;
     background-color: #eee;
+    background-size: 1000px;
+    background-repeat: repeat no-repeat;
+    background-image: url(../image/money.jpg)
 }
