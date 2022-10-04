@@ -1,35 +1,43 @@
-let valueElement = document.querySelector(".js-value");
-let formElement = document.querySelector(".js-form");
-let resultElement = document.querySelector(".js-result");
-let exchangeElement = document.querySelector(".js-exchange");
+{
+    const convertValue = (value, exchange) => {
+        const EUR = 4.70
+        const USD = 4.64
+        const GBP = 5.42
 
+        switch (exchange) {
+            case "EUR":
+                return value / EUR;
 
+            case "USD":
+                return value / USD;
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+            case "GBP":
+                return value / GBP;
 
-    let value = valueElement.value;
-    let exchange = exchangeElement.value;
-    let EUR = 4.70
-    let USD = 4.64
-    let GBP = 5.42
+        }
+    }
 
+    const onFormSubmit = (event) => {
+        event.preventDefault();
 
-    let result;
+        const valueElement = document.querySelector(".js-value");
+        const resultElement = document.querySelector(".js-result");
+        const exchangeElement = document.querySelector(".js-exchange");
 
-    switch (exchange) {
-        case "EUR":
-            result = value / EUR;
-            break;
-        case "USD":
-            result = value / USD;
-            break;
-        case "GBP":
-            result = value / GBP;
-            break;
+        const value = valueElement.value;
+        const exchange = exchangeElement.value;
+
+        const result = convertValue(value, exchange)
+
+        resultElement.innerText = ` ${result.toFixed(2)} ${exchange}`;
 
     }
 
-    resultElement.innerText = ` ${result.toFixed(2)} ${exchange}`;
+    const init = () => {
+        const formElement = document.querySelector(".js-form");
 
-});
+        formElement.addEventListener("submit", onFormSubmit);
+    }
+
+    init();
+}
