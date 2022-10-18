@@ -26,6 +26,10 @@
     color: rgb(141, 0, 28);
 }
 
+.form__resultText {
+    color: rgb(141, 0, 28);
+}
+
 .form__button {
     cursor: pointer;
     background-color: hsl(0, 0%, 85%);
