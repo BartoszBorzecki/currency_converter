@@ -1,10 +1,10 @@
 {
-    const convertValue = (value, exchange) => {
+    const convertValue = (value, currency) => {
         const EUR = 4.70
         const USD = 4.64
         const GBP = 5.42
 
-        switch (exchange) {
+        switch (currency) {
             case "EUR":
                 return value / EUR;
 
@@ -17,20 +17,24 @@
         }
     }
 
+    const updateResultText = (result, currency) => {
+        const resultElement = document.querySelector(".js-result");
+
+        resultElement.innerText = ` ${result.toFixed(2)} ${currency}`;
+    }
+
     const onFormSubmit = (event) => {
         event.preventDefault();
 
         const valueElement = document.querySelector(".js-value");
-        const resultElement = document.querySelector(".js-result");
-        const exchangeElement = document.querySelector(".js-exchange");
+        const currencyElement = document.querySelector(".js-currency");
 
         const value = valueElement.value;
-        const exchange = exchangeElement.value;
+        const currency = currencyElement.value;
 
-        const result = convertValue(value, exchange)
+        const result = convertValue(value, currency)
 
-        resultElement.innerText = ` ${result.toFixed(2)} ${exchange}`;
-
+        updateResultText(result, currency);
     }
 
     const init = () => {
