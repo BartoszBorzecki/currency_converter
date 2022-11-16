@@ -1,4 +1,10 @@
 {
+    const welcome = () => {
+        console.log("Hello everyone!")
+    }
+
+    welcome();
+
     const convertValue = (value, currency) => {
         const EUR = 4.70
         const USD = 4.64
