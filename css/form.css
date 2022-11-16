@@ -39,9 +39,14 @@
     padding: 10px;
 }
 
-.form__button:active {
-    background-color: hsl(0, 0%, 74%);
+.form__button:hover {
+    background-color: hsl(0, 0%, 80%);
 }
+
+.form__button:active {
+    background-color: hsl(0, 0%, 70%);
+}
+
 
 .form__paragraph {
     color: rgb(141, 0, 28);
